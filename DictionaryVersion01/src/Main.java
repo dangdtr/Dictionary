@@ -1,7 +1,5 @@
-package Application;
-
 public class Main {
     public static void main(String[] args) {
-        System.out.println("ok duoc roi nhe");
+        System.out.println("Version 01 of Dictionary by java");
     }
 }
