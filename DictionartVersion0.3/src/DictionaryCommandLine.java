@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Set;
 
 public class DictionaryCommandLine {
     /**
@@ -15,9 +16,11 @@ public class DictionaryCommandLine {
 //        }
 
         System.out.printf("%-10s |%-30s |%-30s \n", "No.", "English", "Vietnamese");
-        for (int i = 0; i < dictionary.bankWord.size(); i++) {
-            System.out.printf("%-10d |%-30s |%-30s \n", (i + 1), dictionary.bankWord.get(i).getTarget()
-                    , dictionary.bankWord.get(i).getExplain());
+        Set<String> keySet = dictionary.bankWord.keySet();
+        int i = 0;
+        for (String val : keySet) {
+            System.out.printf("%-10d |%-30s |%-30s \n", (i + 1), val, dictionary.bankWord.get(val));
+            i++;
         }
     }
 

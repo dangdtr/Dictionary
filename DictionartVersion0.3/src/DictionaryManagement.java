@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Set;
 
 public class DictionaryManagement {
 
@@ -43,7 +43,7 @@ public class DictionaryManagement {
 
         for (int i = 0; i < N; i++) {
             System.out.println(i + 1);
-            dictionary.bankWord.add(inputWord());
+            dictionary.bankWord.put(inputWord().getTarget(), inputWord().getExplain());
         }
         return dictionary;
     }
@@ -74,7 +74,7 @@ public class DictionaryManagement {
 
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                dictionary.bankWord.add(inputWordImprove(data));
+                dictionary.bankWord.put(inputWordImprove(data).getTarget(), inputWordImprove(data).getExplain());
             }
             myReader.close();
         } catch (FileNotFoundException e) {
@@ -94,10 +94,10 @@ public class DictionaryManagement {
         System.out.print("Enter the word to look up: ");
         String wordLookUp = new String(scanner.nextLine());
         int checkSize = 0;
-        for (Word val : dictionary.bankWord) {
-
-            if (val.getTarget().equals(wordLookUp)) {
-                System.out.println("\n" + val.getTarget() + " mean: " + val.getExplain());
+        Set<String> keySet = dictionary.bankWord.keySet();
+        for (String val : keySet) {
+            if (val.equals(wordLookUp)) {
+                System.out.println("\n" + val + " mean: " + dictionary.bankWord.get(val));
                 break;
             }
             checkSize++;
