@@ -34,7 +34,7 @@ public class DictionaryCommandLine {
 
     public void dictionaryAdvanced() {
         DictionaryManagement newManagement = new DictionaryManagement();
-        Dictionary bankWords = newManagement.insertFromFile();
+        Dictionary bankWords = newManagement.insertFromFile("res/dictionaries.txt");;
         DictionaryCommandLine newCommandLine = new DictionaryCommandLine();
 
         Scanner scanner = new Scanner(System.in);
@@ -43,7 +43,8 @@ public class DictionaryCommandLine {
         System.out.println("0: Back to main program.");
         System.out.println("1: Dictionary Lookup.");
         System.out.println("2: Show All Words.");
-
+        System.out.println("3: Add word.");
+        System.out.println("4: Remove Word.");
         int select = 1;
         do {
             System.out.println("\n------------\nEnter your select:");
@@ -56,6 +57,12 @@ public class DictionaryCommandLine {
                     break;
                 case 2:
                     newCommandLine.showAllWords(bankWords);
+                    break;
+                case 3:
+                    newManagement.insertFromCommandline();
+                    break;
+                case 4:
+                    newManagement.removeWord();
                     break;
             }
         } while (select != 0);
