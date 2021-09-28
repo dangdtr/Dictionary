@@ -16,7 +16,7 @@ public class DictionaryManagement {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Input the number of words: ");
-        
+
         /*Fix cái xuống dòng*/
         int N = Integer.parseInt(scanner.nextLine());
 
@@ -67,7 +67,7 @@ public class DictionaryManagement {
             while (scanner.hasNext()) {
                 String data = scanner.nextLine();
                 String[] str = data.split("\\s+", 2);
-                insertWord(str[0], str[1]);
+                insertWord(str[0],"" /* str[1] */ );
             }
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
@@ -91,6 +91,7 @@ public class DictionaryManagement {
 
     }
 
+    ///// ngoại lệ nữa. nhỡ k tìm được thì sao
     /**
      * remove 1 word in dictionary.
      * check this word is in dictionary ?
