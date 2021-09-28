@@ -13,7 +13,7 @@ public class Main {
             System.out.println("Các tùy chọn:");
             System.out.println("0: Thoát chương trình");
             System.out.println("1: Phiên bản commnline cơ bản (v0.1)");
-            System.out.println("2: Phiên bản commanline nâng cao (v0.2)");
+            System.out.println("2: Phiên bản commanline nâng cao (v0.2)(Hiện đã update lên 0.3)");
             System.out.println("3: Phiên bản commanline nâng cao (v0.3)");
             System.out.print("Lựa chọn và ấn Enter để tiếp tục: ");
             System.out.println();
@@ -34,6 +34,8 @@ public class Main {
                     ver.dictionaryAdvanced();
                     break;
                 case 3: // thêm case 3 để vào ver 0.3
+                    ver.dictionaryAdvanced();
+                    break;
                 default:
                     break;
             }

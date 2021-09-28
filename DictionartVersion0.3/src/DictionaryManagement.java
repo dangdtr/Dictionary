@@ -31,7 +31,7 @@ public class DictionaryManagement {
     }
 
     /**
-     * Version 0.1.
+     * Version 0.1 -> 0.3.
      * input N words from cmd.
      * @return dictionary (this is a list of Word objects).
      */
@@ -62,7 +62,7 @@ public class DictionaryManagement {
         return newWord;
     }
     /**
-     * Version 0.2.
+     * Version 0.2 -> 0.3.
      * reads data from file.
      * @return dictionary (this is a list of Word objects).
      */
@@ -85,7 +85,7 @@ public class DictionaryManagement {
     }
 
     /**
-     * version 0.2.
+     * version 0.2 -> 0.3.
      * lookup word from cmd.
      */
     public void dictionaryLookup() {
