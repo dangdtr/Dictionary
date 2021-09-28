@@ -3,6 +3,13 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class DictionaryCommandLine {
+
+    /**
+     * khởi tại khi gọi từ main luôn
+     */
+    DictionaryManagement newManagement = new DictionaryManagement();
+
+
     /**
      * show all words in dictionary.
      *
@@ -20,7 +27,7 @@ public class DictionaryCommandLine {
     }
 
     public void dictionaryBasic() throws IOException {
-        DictionaryManagement newManagement = new DictionaryManagement();
+//        DictionaryManagement newManagement = new DictionaryManagement();
         Dictionary bankWords = newManagement.insertFromCommandline();
 
         DictionaryCommandLine newCommandLine = new DictionaryCommandLine();
@@ -28,7 +35,7 @@ public class DictionaryCommandLine {
     }
 
     public void dictionaryAdvanced() {
-        DictionaryManagement newManagement = new DictionaryManagement();
+//        DictionaryManagement newManagement = new DictionaryManagement();
         Dictionary bankWords = newManagement.insertFromFile("res/dictionaries.txt");;
         DictionaryCommandLine newCommandLine = new DictionaryCommandLine();
 
@@ -40,6 +47,8 @@ public class DictionaryCommandLine {
         System.out.println("2: Show All Words.");
         System.out.println("3: Add word.");
         System.out.println("4: Remove Word.");
+        System.out.println("5: Search Word.");
+
         int select = 1;
         do {
             System.out.println("\n------------\nEnter your select:");
@@ -59,6 +68,8 @@ public class DictionaryCommandLine {
                 case 4:
                     newManagement.removeWord();
                     break;
+                case 5:
+                    newCommandLine.dictionarySearcher(bankWords);
             }
         } while (select != 0);
     }
@@ -66,6 +77,16 @@ public class DictionaryCommandLine {
     /**
      * input a or a little characters, computer will show all words in dictionary start by it.
      */
-    public void dictionarySearcher() {
+    public void dictionarySearcher(Dictionary dictionary) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the word to search: ");
+        String wordSearch = new String(scanner.nextLine());
+
+        Set<String> keySet = dictionary.bankWord.keySet();
+        for (String key : keySet) {
+            if (key.indexOf(wordSearch) == 0) {
+                System.out.printf("%-30s |%-30s \n", key, dictionary.bankWord.get(key));
+            }
+        }
     }
 }
