@@ -42,4 +42,3 @@ public class Main {
         } while (select != 0);
     }
 }
-1

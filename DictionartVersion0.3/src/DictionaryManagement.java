@@ -15,10 +15,11 @@ public class DictionaryManagement {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Input the number of words: ");
-        int N = scanner.nextInt();
+        
+        /*Fix cái xuống dòng*/
+        int N = Integer.parseInt(scanner.nextLine());
 
         for (int i = 0; i < N; i++) {
-            // đăng fix hộ phần này, khi nhập lần đầu nó sẽ bỏ qua word target :(((
             System.out.println(i + 1);
             System.out.print("Input New Word: ");
             String wordTarget = scanner.nextLine();
@@ -108,4 +109,3 @@ public class DictionaryManagement {
     }
 
 }
-1

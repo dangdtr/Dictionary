@@ -9,11 +9,6 @@ public class DictionaryCommandLine {
      * @param dictionary is object of Dictionary
      */
     public void showAllWords(Dictionary dictionary) {
-//        System.out.println("No\t\t\t|Eng\t\t\t|Vie");
-//        for (int i = 0; i < dictionary.bankWord.size(); i++) {
-//            System.out.println((i + 1) + "\t\t\t|" + dictionary.bankWord.get(i).getTarget()
-//                                    + "\t\t\t|" + dictionary.bankWord.get(i).getExplain());
-//        }
 
         System.out.printf("%-10s |%-30s |%-30s \n", "No.", "English", "Vietnamese");
         Set<String> keySet = dictionary.bankWord.keySet();
@@ -74,4 +69,3 @@ public class DictionaryCommandLine {
     public void dictionarySearcher() {
     }
 }
-1
