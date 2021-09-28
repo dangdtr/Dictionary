@@ -101,10 +101,15 @@ public class DictionaryManagement {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input the word you want to remove: ");
         String wordTarget = scanner.nextLine();
-        for (String key:)
-        dictionary.bankWord.remove(wordTarget);
-
-
+        for (String key : keySet) {
+            if (key.equals(wordTarget)) {
+                dictionary.bankWord.remove(wordTarget);
+                break;
+            } else {
+                System.out.println("No exist!!!");
+                break;
+            }
+        }
     }
 
     /**
