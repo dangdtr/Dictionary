@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashSet;
+import java.io.*;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -10,6 +8,7 @@ public class DictionaryManagement {
     /**
      * Version 0.1.
      * input N words from cmd.
+     *
      * @return dictionary (this is a list of Word objects).
      */
     public Dictionary insertFromCommandline() {
@@ -41,7 +40,7 @@ public class DictionaryManagement {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the word to look up: ");
-        String wordLookUp = new String(scanner.nextLine());
+        String wordLookUp = scanner.nextLine();
         int checkSize = 0;
         Set<String> keySet = dictionary.bankWord.keySet();
         for (String val : keySet) {
@@ -58,6 +57,8 @@ public class DictionaryManagement {
 
     /**
      * insert the word from file.
+     * Hàm này đang đọc từng dòng 1 và cho vào map.
+     *
      * @param path is the link to file dictionaries.txt
      */
     public Dictionary insertFromFile(String path) {
@@ -67,7 +68,7 @@ public class DictionaryManagement {
             while (scanner.hasNext()) {
                 String data = scanner.nextLine();
                 String[] str = data.split("\\s+", 2);
-                insertWord(str[0],"" /* str[1] */ );
+                insertWord(str[0], "" /* str[1] */);
             }
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
@@ -75,6 +76,7 @@ public class DictionaryManagement {
         }
         return dictionary;
     }
+
     /**
      * insert a word.
      * check this word is in dictionary ?
@@ -91,7 +93,7 @@ public class DictionaryManagement {
 
     }
 
-    ///// ngoại lệ nữa. nhỡ k tìm được thì sao
+
     /**
      * remove 1 word in dictionary.
      * check this word is in dictionary ?
@@ -116,7 +118,19 @@ public class DictionaryManagement {
     /**
      * export the new word from cmd to file.
      */
-    public void dictionaryExportToFile() {
+    public void dictionaryExportToFile() throws IOException {
+        String FILE_URL = "./res/output.txt";
+        File file = new File(FILE_URL);
+        OutputStream outputStream = new FileOutputStream(file);
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
+
+        Set<String> keySet = dictionary.bankWord.keySet();
+        for (String key: keySet){
+            outputStreamWriter.write(key);
+            outputStreamWriter.write("\n");
+        }
+        outputStreamWriter.flush();
+        System.out.println("Done!");
 
     }
 

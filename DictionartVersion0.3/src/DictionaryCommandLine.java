@@ -34,9 +34,9 @@ public class DictionaryCommandLine {
         newCommandLine.showAllWords(bankWords);
     }
 
-    public void dictionaryAdvanced() {
+    public void dictionaryAdvanced() throws IOException {
 //        DictionaryManagement newManagement = new DictionaryManagement();
-        Dictionary bankWords = newManagement.insertFromFile("res/dictionaries.txt");;
+        Dictionary bankWords = newManagement.insertFromFile("res/dictionaries.txt");
         DictionaryCommandLine newCommandLine = new DictionaryCommandLine();
 
         Scanner scanner = new Scanner(System.in);
@@ -48,6 +48,7 @@ public class DictionaryCommandLine {
         System.out.println("3: Add word.");
         System.out.println("4: Remove Word.");
         System.out.println("5: Search Word.");
+        System.out.println("6: Export to file.");
 
         int select = 1;
         do {
@@ -70,6 +71,10 @@ public class DictionaryCommandLine {
                     break;
                 case 5:
                     newCommandLine.dictionarySearcher(bankWords);
+                    break;
+                case 6:
+                    newManagement.dictionaryExportToFile();
+                    break;
             }
         } while (select != 0);
     }
@@ -80,7 +85,7 @@ public class DictionaryCommandLine {
     public void dictionarySearcher(Dictionary dictionary) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the word to search: ");
-        String wordSearch = new String(scanner.nextLine());
+        String wordSearch = scanner.nextLine();
 
         Set<String> keySet = dictionary.bankWord.keySet();
         for (String key : keySet) {
