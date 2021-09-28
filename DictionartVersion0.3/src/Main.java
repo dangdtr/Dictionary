@@ -36,12 +36,9 @@ public class Main {
                 case 3:
                     ver.dictionaryAdvanced();
                     break;
-//<<<<<<< HEAD
                 case 3: // thêm case 3 để vào ver 0.3
                     ver.dictionaryAdvanced();
                     break;
-//=======
-//>>>>>>> 5633be9afc7adbdce936d2e307c3ba9a20185f74
                 default:
                     break;
             }

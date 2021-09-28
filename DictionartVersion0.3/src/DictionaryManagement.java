@@ -8,7 +8,6 @@ public class DictionaryManagement {
 
     /**
      * Version 0.1.
-//<<<<<<< HEAD
      * "format" and insert 2 field to word.
      * in order to input N words from cmd.
      * @return a word (form Word object).
@@ -28,8 +27,6 @@ public class DictionaryManagement {
 
     /**
      * Version 0.1 -> 0.3.
-//=======
-//>>>>>>> 5633be9afc7adbdce936d2e307c3ba9a20185f74
      * input N words from cmd.
      * @return dictionary (this is a list of Word objects).
      */
@@ -42,7 +39,6 @@ public class DictionaryManagement {
         for (int i = 0; i < N; i++) {
             // đăng fix hộ phần này, khi nhập lần đầu nó sẽ bỏ qua word target :(((
             System.out.println(i + 1);
-//<<<<<<< HEAD
             dictionary.bankWord.put(inputWord().getTarget(), inputWord().getExplain());
         }
         return dictionary;
@@ -71,13 +67,11 @@ public class DictionaryManagement {
         try {
             File fileObj = new File("res/dictionaries.txt");
             Scanner myReader = new Scanner(fileObj);
-//=======
             System.out.print("Input New Word: ");
             String wordTarget = scanner.nextLine();
             System.out.println();
             System.out.print("Input the explain: ");
             String wordExplain = scanner.nextLine();
-//>>>>>>> 5633be9afc7adbdce936d2e307c3ba9a20185f74
 
             insertWord(wordTarget, wordExplain);
         }
