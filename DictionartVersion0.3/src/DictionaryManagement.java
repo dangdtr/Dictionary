@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -95,10 +96,20 @@ public class DictionaryManagement {
      * check this word is in dictionary ?
      */
     public void removeWord() {
+        Set<String> keySet = dictionary.bankWord.keySet();
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input the word you want to remove: ");
         String wordTarget = scanner.nextLine();
-        dictionary.bankWord.remove(wordTarget);
+        for (String key : keySet) {
+            if (key.equals(wordTarget)) {
+                dictionary.bankWord.remove(wordTarget);
+                break;
+            } else {
+                System.out.println("No exist!!!");
+                break;
+            }
+        }
     }
 
     /**
