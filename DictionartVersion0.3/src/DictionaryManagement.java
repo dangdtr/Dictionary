@@ -82,7 +82,19 @@ public class DictionaryManagement {
      * check this word is in dictionary ?
      */
     public void insertWord(String wordTarget, String wordExplain) {
-        dictionary.bankWord.put(wordTarget, wordExplain);
+        Set<String> keySet = dictionary.bankWord.keySet();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input the word you want to remove: ");
+        for (String key : keySet) {
+            if (key.equals(wordTarget)) {
+                dictionary.bankWord.put(wordTarget, wordExplain);
+                break;
+            } else {
+                System.out.println("No exist!!!");
+                break;
+            }
+        }
     }
 
     /**
