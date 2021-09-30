@@ -3,20 +3,13 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class DictionaryCommandLine {
-
-    /**
-     * khởi tại khi gọi từ main luôn
-     */
     DictionaryManagement newManagement = new DictionaryManagement();
-
-
     /**
      * show all words in dictionary.
      *
      * @param dictionary is object of Dictionary
      */
     public void showAllWords(Dictionary dictionary) {
-
         System.out.printf("%-10s |%-30s |%-30s \n", "No.", "English", "Vietnamese");
         Set<String> keySet = dictionary.bankWord.keySet();
         int i = 0;
