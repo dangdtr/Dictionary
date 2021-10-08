@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package AppFrame;
-
+import javax.swing.JTabbedPane;
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -32,22 +32,19 @@ public class MenuFrame extends javax.swing.JFrame {
         jPopupMenu1 = new javax.swing.JPopupMenu();
         background = new javax.swing.JPanel();
         sidePane = new javax.swing.JPanel();
-        ggTrans = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         menuName = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        searchTab = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        addTab = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        removeTab = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        ggButton = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
+        removeButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dictionary App");
@@ -61,51 +58,12 @@ public class MenuFrame extends javax.swing.JFrame {
         setModalExclusionType(null);
         setName("menuFrame"); // NOI18N
 
-        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setBackground(new java.awt.Color(204, 255, 255));
         background.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sidePane.setBackground(new java.awt.Color(54, 33, 89));
         sidePane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ggTrans.setBackground(new java.awt.Color(64, 43, 100));
-        ggTrans.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                ggTransMousePressed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setText(">>");
-        jLabel1.setToolTipText("");
-
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel2.setText("Google Translate");
-
-        javax.swing.GroupLayout ggTransLayout = new javax.swing.GroupLayout(ggTrans);
-        ggTrans.setLayout(ggTransLayout);
-        ggTransLayout.setHorizontalGroup(
-            ggTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ggTransLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        ggTransLayout.setVerticalGroup(
-            ggTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ggTransLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ggTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        sidePane.add(ggTrans, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 220, 50));
 
         menuName.setBackground(new java.awt.Color(54, 33, 89));
 
@@ -119,139 +77,66 @@ public class MenuFrame extends javax.swing.JFrame {
         menuNameLayout.setHorizontalGroup(
             menuNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuNameLayout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addGap(41, 41, 41))
         );
         menuNameLayout.setVerticalGroup(
             menuNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(menuNameLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         sidePane.add(menuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 220, 50));
 
-        searchTab.setBackground(new java.awt.Color(64, 43, 100));
-        searchTab.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                searchTabMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                searchTabMousePressed(evt);
-            }
-        });
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Search_18px.png"))); // NOI18N
-        jLabel3.setToolTipText("");
-
-        jLabel4.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel4.setText("Search New Word");
-
-        javax.swing.GroupLayout searchTabLayout = new javax.swing.GroupLayout(searchTab);
-        searchTab.setLayout(searchTabLayout);
-        searchTabLayout.setHorizontalGroup(
-            searchTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(searchTabLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-        searchTabLayout.setVerticalGroup(
-            searchTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(searchTabLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(searchTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(searchTabLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(searchTabLayout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                        .addContainerGap(15, Short.MAX_VALUE))))
-        );
-
-        sidePane.add(searchTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 220, 50));
-
-        addTab.setBackground(new java.awt.Color(64, 43, 100));
-        addTab.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                addTabMousePressed(evt);
+        ggButton.setBackground(new java.awt.Color(65, 66, 128));
+        ggButton.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
+        ggButton.setForeground(new java.awt.Color(255, 255, 255));
+        ggButton.setText("Google Translate ");
+        ggButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ggButtonActionPerformed(evt);
             }
         });
+        sidePane.add(ggButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 220, 40));
 
-        jLabel5.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel5.setText(">>");
-        jLabel5.setToolTipText("");
-
-        jLabel6.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel6.setText("Add New Word");
-
-        javax.swing.GroupLayout addTabLayout = new javax.swing.GroupLayout(addTab);
-        addTab.setLayout(addTabLayout);
-        addTabLayout.setHorizontalGroup(
-            addTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addTabLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        addTabLayout.setVerticalGroup(
-            addTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addTabLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(addTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        sidePane.add(addTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 220, 50));
-
-        removeTab.setBackground(new java.awt.Color(64, 43, 100));
-        removeTab.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                removeTabMousePressed(evt);
+        searchButton.setBackground(new java.awt.Color(65, 66, 128));
+        searchButton.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
+        searchButton.setForeground(new java.awt.Color(255, 255, 255));
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Search_18px.png"))); // NOI18N
+        searchButton.setText("  Search Word");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
             }
         });
+        sidePane.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 220, 40));
 
-        jLabel7.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel7.setText(">>");
-        jLabel7.setToolTipText("");
+        addButton.setBackground(new java.awt.Color(65, 66, 128));
+        addButton.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
+        addButton.setForeground(new java.awt.Color(255, 255, 255));
+        addButton.setText("Add Word");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
+        sidePane.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 220, 40));
 
-        jLabel8.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel8.setText("Remove Word");
+        removeButton.setBackground(new java.awt.Color(65, 66, 128));
+        removeButton.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
+        removeButton.setForeground(new java.awt.Color(255, 255, 255));
+        removeButton.setText("Remove Word");
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeButtonActionPerformed(evt);
+            }
+        });
+        sidePane.add(removeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 220, 40));
 
-        javax.swing.GroupLayout removeTabLayout = new javax.swing.GroupLayout(removeTab);
-        removeTab.setLayout(removeTabLayout);
-        removeTabLayout.setHorizontalGroup(
-            removeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(removeTabLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        removeTabLayout.setVerticalGroup(
-            removeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(removeTabLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(removeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        sidePane.add(removeTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 220, 50));
-
-        background.add(sidePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 531));
+        background.add(sidePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 910));
 
         jPanel1.setBackground(new java.awt.Color(122, 89, 222));
 
@@ -266,75 +151,115 @@ public class MenuFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(28, 28, 28))
+                .addGap(55, 55, 55))
         );
 
-        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 54, 650, -1));
+        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 770, 110));
+
+        jPanel3.setBackground(new java.awt.Color(255, 204, 255));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 735, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 592, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab2", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 735, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 592, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab3", jPanel4);
+
+        jPanel5.setBackground(new java.awt.Color(153, 255, 153));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 735, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 592, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab4", jPanel5);
+
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 735, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 592, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab1", jPanel2);
+
+        background.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 740, 620));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 971, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchTabMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTabMousePressed
-        // TODO add your handling code here:
-        setColor(searchTab);
-        resetColor(addTab);
-        resetColor(ggTrans);
-        resetColor(removeTab);
-    }//GEN-LAST:event_searchTabMousePressed
+    private void ggButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ggButtonActionPerformed
+        jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_ggButtonActionPerformed
 
-    private void addTabMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addTabMousePressed
-        // TODO add your handling code here:
-        setColor(addTab);
-        resetColor(searchTab);
-        resetColor(ggTrans);
-        resetColor(removeTab);
-    }//GEN-LAST:event_addTabMousePressed
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_searchButtonActionPerformed
 
-    private void removeTabMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeTabMousePressed
-        // TODO add your handling code here:
-        setColor(removeTab);
-        resetColor(addTab);
-        resetColor(ggTrans);
-        resetColor(searchTab);
-    }//GEN-LAST:event_removeTabMousePressed
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_addButtonActionPerformed
 
-    private void ggTransMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ggTransMousePressed
-        // TODO add your handling code here:
-        setColor(ggTrans);
-        resetColor(addTab);
-        resetColor(searchTab);
-        resetColor(removeTab);
-    }//GEN-LAST:event_ggTransMousePressed
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_removeButtonActionPerformed
 
-    private void searchTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTabMouseClicked
-        new SearchFrame().setVisible(true);
-    }//GEN-LAST:event_searchTabMouseClicked
-
-    void setColor(JPanel panel) {
-        panel.setBackground(new Color(85,65,118));
-    }
-    
-    void resetColor(JPanel panel) {
-        panel.setBackground(new Color(64,43,100));
-    }
+ 
     /**
      * @param args the command line arguments
      */
@@ -371,24 +296,21 @@ public class MenuFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel addTab;
+    private javax.swing.JButton addButton;
     private javax.swing.JPanel background;
-    private javax.swing.JPanel ggTrans;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ggButton;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel menuName;
-    private javax.swing.JPanel removeTab;
-    private javax.swing.JPanel searchTab;
+    private javax.swing.JButton removeButton;
+    private javax.swing.JButton searchButton;
     private javax.swing.JPanel sidePane;
     // End of variables declaration//GEN-END:variables
 }
