@@ -1,33 +1,38 @@
 package AppLogic;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import java.util.Set;
 
 public class DictionaryManagement {
 
     /**
-     * Đọc từ từ file. còn nhiều lỗi: các từ chưa đúng format, data còn lỗi và lớn.
-     * => cần khắc phục => Đăng
+     * Khắc phục được đọc file. Còn định dạng của meaning.
      */
     public void insertFromFile(String path) {
-        try (Scanner scanner = new Scanner(new File(path))) {
-            String buffer = "";
-            while (scanner.hasNext()) {
+        try {
+            Scanner scanner = new Scanner(new File(path), StandardCharsets.UTF_8);
+
+            while (scanner.hasNextLine()) {
                 String data = scanner.nextLine();
-                if (data.equals("") && !buffer.equals("")) {
-                    String[] str = buffer.split(/*"(?= /)"*/ " |\n", 2);
-                    //str[0] = str[0].replace("@", "");
-                    //str[1] = "/" + str[1];
-                    //Dictionary.bankWord.put(part1, part2);
-                    buffer = "";
-                } else {
-                    buffer = buffer + "\n" + data;
+                if (data.equals("@")) {
+                    data = scanner.nextLine();
+                    String word = data;
+                    while (!data.equals("#")) {
+                        data = scanner.nextLine();
+                        if (data.equals("#")) {
+                            continue;
+                        }
+                        Dictionary.bankWord.put(word, data);
+                    }
                 }
+
             }
-            System.out.println("end");
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.out.println("done!");
+            scanner.close();
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
