@@ -3,9 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package AppFrame;
-import javax.swing.JTabbedPane;
-import java.awt.Color;
-import javax.swing.JPanel;
 
 /**
  *
@@ -29,237 +26,154 @@ public class MenuFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        background = new javax.swing.JPanel();
-        sidePane = new javax.swing.JPanel();
-        menuName = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        ggButton = new javax.swing.JButton();
-        searchButton = new javax.swing.JButton();
-        addButton = new javax.swing.JButton();
-        removeButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Dictionary App");
-        setAutoRequestFocus(false);
-        setBackground(new java.awt.Color(102, 204, 255));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.SE_RESIZE_CURSOR));
-        setFocusableWindowState(false);
-        setIconImages(null);
-        setLocation(new java.awt.Point(400, 150));
-        setMinimumSize(new java.awt.Dimension(500, 500));
-        setModalExclusionType(null);
-        setName("menuFrame"); // NOI18N
 
-        background.setBackground(new java.awt.Color(204, 255, 255));
-        background.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
-        sidePane.setBackground(new java.awt.Color(54, 33, 89));
-        sidePane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(85, 26, 139));
 
-        menuName.setBackground(new java.awt.Color(54, 33, 89));
-
-        jLabel9.setFont(new java.awt.Font("UTM Daxline", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel9.setText("- MENU -");
-        jLabel9.setVerifyInputWhenFocusTarget(false);
-
-        javax.swing.GroupLayout menuNameLayout = new javax.swing.GroupLayout(menuName);
-        menuName.setLayout(menuNameLayout);
-        menuNameLayout.setHorizontalGroup(
-            menuNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuNameLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
-        );
-        menuNameLayout.setVerticalGroup(
-            menuNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuNameLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        sidePane.add(menuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 220, 50));
-
-        ggButton.setBackground(new java.awt.Color(65, 66, 128));
-        ggButton.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
-        ggButton.setForeground(new java.awt.Color(255, 255, 255));
-        ggButton.setText("Google Translate ");
-        ggButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ggButtonActionPerformed(evt);
-            }
-        });
-        sidePane.add(ggButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 220, 40));
-
-        searchButton.setBackground(new java.awt.Color(65, 66, 128));
-        searchButton.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
-        searchButton.setForeground(new java.awt.Color(255, 255, 255));
-        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Search_18px.png"))); // NOI18N
-        searchButton.setText("  Search Word");
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtonActionPerformed(evt);
-            }
-        });
-        sidePane.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 220, 40));
-
-        addButton.setBackground(new java.awt.Color(65, 66, 128));
-        addButton.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
-        addButton.setForeground(new java.awt.Color(255, 255, 255));
-        addButton.setText("Add Word");
-        addButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButtonActionPerformed(evt);
-            }
-        });
-        sidePane.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 220, 40));
-
-        removeButton.setBackground(new java.awt.Color(65, 66, 128));
-        removeButton.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
-        removeButton.setForeground(new java.awt.Color(255, 255, 255));
-        removeButton.setText("Remove Word");
-        removeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeButtonActionPerformed(evt);
-            }
-        });
-        sidePane.add(removeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 220, 40));
-
-        background.add(sidePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 910));
-
-        jPanel1.setBackground(new java.awt.Color(122, 89, 222));
-
-        jLabel10.setFont(new java.awt.Font("UTM Daxline", 1, 36)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("DICTIONARY ENG - VIE");
+        jLabel1.setFont(new java.awt.Font("UTM Daxline", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/book-2-24.png"))); // NOI18N
+        jLabel1.setText("  DICTIONART ENGLISH - VIETNAMESE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(361, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(55, 55, 55))
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 770, 110));
+        jButton1.setBackground(new java.awt.Color(153, 51, 255));
+        jButton1.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Search_18px.png"))); // NOI18N
+        jButton1.setText("  Search Word");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 255));
+        jButton2.setBackground(new java.awt.Color(153, 51, 255));
+        jButton2.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Add New Word");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 735, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 592, Short.MAX_VALUE)
-        );
+        jButton3.setBackground(new java.awt.Color(153, 51, 255));
+        jButton3.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Remove Word");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
-        jTabbedPane1.addTab("tab2", jPanel3);
+        jButton4.setBackground(new java.awt.Color(153, 51, 255));
+        jButton4.setFont(new java.awt.Font("UTM Daxline", 1, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Google Translate Online");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 735, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 592, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab3", jPanel4);
-
-        jPanel5.setBackground(new java.awt.Color(153, 255, 153));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 735, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 592, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab4", jPanel5);
-
-        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+        jLabel2.setFont(new java.awt.Font("UTM Daxline", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("  MENU");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 735, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 592, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 171, Short.MAX_VALUE))
         );
-
-        jTabbedPane1.addTab("tab1", jPanel2);
-
-        background.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 740, 620));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 971, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ggButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ggButtonActionPerformed
-        jTabbedPane1.setSelectedIndex(3);
-    }//GEN-LAST:event_ggButtonActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new searchFrame().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        jTabbedPane1.setSelectedIndex(0);
-    }//GEN-LAST:event_searchButtonActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new addFrame().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        jTabbedPane1.setSelectedIndex(1);
-    }//GEN-LAST:event_addButtonActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new removeFrame().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-        jTabbedPane1.setSelectedIndex(2);
-    }//GEN-LAST:event_removeButtonActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        new ggFrame().setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
- 
     /**
      * @param args the command line arguments
      */
@@ -296,21 +210,13 @@ public class MenuFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addButton;
-    private javax.swing.JPanel background;
-    private javax.swing.JButton ggButton;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JPanel menuName;
-    private javax.swing.JButton removeButton;
-    private javax.swing.JButton searchButton;
-    private javax.swing.JPanel sidePane;
     // End of variables declaration//GEN-END:variables
 }
