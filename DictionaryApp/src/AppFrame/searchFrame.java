@@ -29,7 +29,7 @@ public class searchFrame extends javax.swing.JFrame {
     }
     private Connection connect() {
         // SQLite connection string  
-        String url = "jdbc:sqlite:D:\\BTL_DIC\\Dictionary\\DictionaryApp\\src\\AppFrame\\data.db";
+        String url = "jdbc:sqlite:src/AppFrame/data.db";
         Connection conn = null;
         try {
             conn = (Connection) DriverManager.getConnection(url);
@@ -70,9 +70,7 @@ public class searchFrame extends javax.swing.JFrame {
             
             ResultSet rs  = ps.executeQuery();
             if (rs.next()) {
-                showMeaning.setText(rs.getString("pro"));
-                showMeaning.setText("\n");
-                showMeaning.setText(rs.getString("mean"));
+                showMeaning.setText(rs.getString("pro") + "\n" + rs.getString("mean"));
             }
             rs.close();
             ps.close();
@@ -217,6 +215,7 @@ public class searchFrame extends javax.swing.JFrame {
                 .addGap(83, 83, 83))
         );
 
+        showMeaning.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jScrollPane1.setViewportView(showMeaning);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
