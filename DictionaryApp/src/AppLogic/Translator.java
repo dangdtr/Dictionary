@@ -19,7 +19,7 @@ public class Translator {
         }
     }
 
-    private static String translate(String langFrom, String langTo, String text) throws IOException {
+    public static String translate(String langFrom, String langTo, String text) throws IOException {
         // INSERT YOU URL HERE
         String urlStr = "https://script.google.com/macros/s/AKfycbygFnyIKNVv0GhUCQSJ3NTUG-RCHFVteZM3im5coGQfVpx5adc/exec" +
                 "?q=" + URLEncoder.encode(text, "UTF-8") +
