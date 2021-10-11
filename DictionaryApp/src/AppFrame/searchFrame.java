@@ -29,7 +29,7 @@ public class searchFrame extends javax.swing.JFrame {
     }
     private Connection connect() {
         // SQLite connection string  
-        String url = "jdbc:sqlite:src/AppFrame/data.db";
+        String url = "jdbc:sqlite:res/default/data.db";
         Connection conn = null;
         try {
             conn = (Connection) DriverManager.getConnection(url);
