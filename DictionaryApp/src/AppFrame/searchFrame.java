@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package AppFrame;
+import java.awt.event.KeyEvent;
 import java.sql.*;
 
 /**
@@ -28,7 +29,7 @@ public class searchFrame extends javax.swing.JFrame {
     }
     private Connection connect() {
         // SQLite connection string  
-        String url = "jdbc:sqlite:D:\\BTL_DIC\\Dictionary\\DictionaryApp\\src\\AppFrame\\dictav.db";
+        String url = "jdbc:sqlite:D:\\BTL_DIC\\Dictionary\\DictionaryApp\\src\\AppFrame\\data.db";
         Connection conn = null;
         try {
             conn = (Connection) DriverManager.getConnection(url);
@@ -147,6 +148,11 @@ public class searchFrame extends javax.swing.JFrame {
                 inputStringActionPerformed(evt);
             }
         });
+        inputString.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputStringKeyPressed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Search_18px.png"))); // NOI18N
@@ -204,9 +210,9 @@ public class searchFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(inputString, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                 .addComponent(SearchButton)
                 .addGap(83, 83, 83))
         );
@@ -258,6 +264,13 @@ public class searchFrame extends javax.swing.JFrame {
         String data = getDataFromBox();
         printMeaning(data);
     }//GEN-LAST:event_SearchButtonActionPerformed
+
+    private void inputStringKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputStringKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String data = getDataFromJtext();
+            dictionarySearcher(data);
+        }
+    }//GEN-LAST:event_inputStringKeyPressed
 
     /**
      * @param args the command line arguments
