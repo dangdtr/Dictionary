@@ -114,7 +114,7 @@ public class ggFrame extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(255, 102, 102));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/audio_icon.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-audio-18.png"))); // NOI18N
         jButton2.setText("Speech E.text");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
