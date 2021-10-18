@@ -27,6 +27,7 @@ public class searchFrame extends javax.swing.JFrame {
         String res = "";
         res = inputString.getText();
         return res;
+//        return inputString.getText();
     }
     private String getDataFromJlist() {
         String res = listWords.getSelectedValue();
@@ -161,9 +162,9 @@ public class searchFrame extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 inputStringKeyReleased(evt);
             }
-//            public void keyTyped(java.awt.event.KeyEvent evt) {
-//                inputStringKeyTyped(evt);
-//            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputStringKeyTyped(evt);
+            }
         });
         inputString.requestFocusInWindow();
         jButton1.setBackground(new java.awt.Color(51, 51, 255));
@@ -288,19 +289,24 @@ public class searchFrame extends javax.swing.JFrame {
     private void listWordsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listWordsMousePressed
         String data = getDataFromJlist();
         printMeaning(data);
+        //dictionarySearcher(data);
+
     }//GEN-LAST:event_listWordsMousePressed
 
     private void inputStringKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputStringKeyReleased
         // TODO add your handling code here:
         String data = getDataFromJtext();
-        printMeaning(data);
+//        printMeaning(data);
+        dictionarySearcher(data);
+
     }//GEN-LAST:event_inputStringKeyReleased
 
-//    private void inputStringKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputStringKeyTyped
-//        // TODO add your handling code here:
-//        String data = getDataFromJtext();
+    private void inputStringKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputStringKeyTyped
+        // TODO add your handling code here:
+        String data = getDataFromJtext();
 //        printMeaning(data);
-//    }//GEN-LAST:event_inputStringKeyTyped
+        dictionarySearcher(data);
+    }//GEN-LAST:event_inputStringKeyTyped
 
     /**
      * @param args the command line arguments
