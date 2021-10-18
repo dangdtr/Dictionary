@@ -289,6 +289,7 @@ public class searchFrame extends javax.swing.JFrame {
     private void listWordsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listWordsMousePressed
         String data = getDataFromJlist();
         printMeaning(data);
+        inputString.setText(data);
         //dictionarySearcher(data);
 
     }//GEN-LAST:event_listWordsMousePressed

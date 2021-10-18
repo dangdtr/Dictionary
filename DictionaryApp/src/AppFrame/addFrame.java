@@ -4,6 +4,8 @@
  */
 package AppFrame;
 
+import javax.swing.*;
+
 /**
  *
  * @author Dell
@@ -84,7 +86,6 @@ public class addFrame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("UTM Daxline", 1, 14)); // NOI18N
         jLabel3.setText("Add Word mean");
 
-        addWord.setText("jTextField1");
         addWord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addWordActionPerformed(evt);
@@ -93,8 +94,6 @@ public class addFrame extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("UTM Daxline", 1, 14)); // NOI18N
         jLabel4.setText("Add Pronounciation");
-
-        addPro.setText("jTextField2");
 
         addMean.setColumns(20);
         addMean.setRows(5);
@@ -179,9 +178,9 @@ public class addFrame extends javax.swing.JFrame {
     private void addWordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addWordButtonActionPerformed
         if (!AppLogic.DatabaseManagement.checkWord(getWord())) {
             AppLogic.DatabaseManagement.insertWord(getWord(), getPro(), getMean());
-            new MessengerBox("successful!!").setVisible(true);
+            JOptionPane.showMessageDialog(this, "Add Success!!!");
         } else {
-            new MessengerBox("error!!").setVisible(true);
+            JOptionPane.showMessageDialog(this, "Dictionary haved this word!!!");
         }
     }//GEN-LAST:event_addWordButtonActionPerformed
 

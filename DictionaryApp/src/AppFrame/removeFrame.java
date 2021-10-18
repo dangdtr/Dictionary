@@ -4,6 +4,8 @@
  */
 package AppFrame;
 
+import javax.swing.*;
+
 /**
  *
  * @author Dell
@@ -66,8 +68,6 @@ public class removeFrame extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("UTM Daxline", 1, 14)); // NOI18N
         jLabel2.setText("Input word you want to remove:");
 
-        wordRemove.setText("jTextField1");
-
         removeButton.setText("Remove");
         removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,9 +124,9 @@ public class removeFrame extends javax.swing.JFrame {
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         if (AppLogic.DatabaseManagement.checkWord(getWordRemove())) {
             AppLogic.DatabaseManagement.removeWord(getWordRemove());
-            new MessengerBox("successful!!").setVisible(true);
+            JOptionPane.showMessageDialog(this, "Remove Success!!!");
         } else {
-            new MessengerBox("error!!!").setVisible(true);
+            JOptionPane.showMessageDialog(this, "Cannot find this word!!!");
         }
     }//GEN-LAST:event_removeButtonActionPerformed
 

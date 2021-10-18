@@ -162,9 +162,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="addWord">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addWordActionPerformed"/>
           </Events>
@@ -178,9 +175,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="addPro">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField2"/>
-          </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
