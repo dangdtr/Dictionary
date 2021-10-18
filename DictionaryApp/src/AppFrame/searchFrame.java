@@ -34,7 +34,7 @@ public class searchFrame extends javax.swing.JFrame {
     }
     private Connection connect() {
         // SQLite connection string  
-        String url = "jdbc:sqlite:res/default/data.db";
+        String url = "jdbc:sqlite:res/modify/data.db";
         Connection conn = null;
         try {
             conn = (Connection) DriverManager.getConnection(url);
@@ -161,11 +161,11 @@ public class searchFrame extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 inputStringKeyReleased(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                inputStringKeyTyped(evt);
-            }
+//            public void keyTyped(java.awt.event.KeyEvent evt) {
+//                inputStringKeyTyped(evt);
+//            }
         });
-
+        inputString.requestFocusInWindow();
         jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Search_18px.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -286,7 +286,7 @@ public class searchFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void listWordsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listWordsMousePressed
-        String data = getDataFromJtext();
+        String data = getDataFromJlist();
         printMeaning(data);
     }//GEN-LAST:event_listWordsMousePressed
 
@@ -296,11 +296,11 @@ public class searchFrame extends javax.swing.JFrame {
         printMeaning(data);
     }//GEN-LAST:event_inputStringKeyReleased
 
-    private void inputStringKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputStringKeyTyped
-        // TODO add your handling code here:
-        String data = getDataFromJtext();
-        printMeaning(data);
-    }//GEN-LAST:event_inputStringKeyTyped
+//    private void inputStringKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputStringKeyTyped
+//        // TODO add your handling code here:
+//        String data = getDataFromJtext();
+//        printMeaning(data);
+//    }//GEN-LAST:event_inputStringKeyTyped
 
     /**
      * @param args the command line arguments

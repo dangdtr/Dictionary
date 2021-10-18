@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class DatabaseManagement {
 
-    private Connection connect() {
+    private static Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:res/default/data.db";
+        String url = "jdbc:sqlite:res/defaul/data.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -16,7 +16,7 @@ public class DatabaseManagement {
         return conn;
     }
 
-    private Connection connectForUser() {
+    private static Connection connectForUser() {
         // SQLite connection string
         String url = "jdbc:sqlite:res/modify/data.db";
         Connection conn = null;
@@ -28,12 +28,32 @@ public class DatabaseManagement {
         return conn;
     }
 
+    public static boolean checkWord(String word) {
+        String sqlSearch = "SELECT * FROM av WHERE word LIKE ?";
 
+        try {
+            Connection conn = connectForUser();
+
+            PreparedStatement ps  = conn.prepareStatement(sqlSearch);
+            ps.setString(1, word);
+            ResultSet rs = ps.executeQuery();
+            String res = "";
+
+            while (rs.next()) {
+                String meaning = rs.getString("word");
+                res = meaning;
+            }
+            if (res.isEmpty()) return false;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return true;
+    }
     public void dictionarySearcherList(String keyWord){
         String sqlSearch = "SELECT word FROM av WHERE word LIKE ?";
 
         try {
-            Connection conn = this.connect();
+            Connection conn = connect();
 
             PreparedStatement ps  = conn.prepareStatement(sqlSearch);
             ps.setString(1,keyWord + "%");
@@ -59,7 +79,7 @@ public class DatabaseManagement {
 
             PreparedStatement ps  = conn.prepareStatement(sqlSearch);
             ps.setString(1, word);
-            ResultSet rs    = ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
 
 
             while (rs.next()) {
@@ -73,11 +93,11 @@ public class DatabaseManagement {
         }
     }
 
-    public void insertWord(String word, String pro, String mean) {
+    public static void insertWord(String word, String pro, String mean) {
         String sqlInsert = "INSERT INTO av (word, pro, mean) VALUES (?, ?, ?)";
 
         try {
-            Connection conn = this.connectForUser();
+            Connection conn = connectForUser();
             PreparedStatement ps  = conn.prepareStatement(sqlInsert);
             ps.setString(1,word);
             ps.setString(2,pro);
@@ -90,11 +110,11 @@ public class DatabaseManagement {
     }
 
 
-    public void removeWord(String word) {
+    public static void removeWord(String word) {
         String sqlRemove = "DELETE FROM av WHERE word = ?";
 
         try {
-            Connection conn = this.connectForUser();
+            Connection conn = connectForUser();
             PreparedStatement ps  = conn.prepareStatement(sqlRemove);
 
             ps.setString(1,word);
@@ -103,7 +123,6 @@ public class DatabaseManagement {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     /**
@@ -139,12 +158,12 @@ public class DatabaseManagement {
      */
     public static void main(String[] args) {
         DatabaseManagement app = new DatabaseManagement();
-        //app.dictionarySearcher("cat");
-        //app.editWord("cat", "woof", "yeu cho");
-        //app.insertWord("cattt", "meow", "ghet cho");
+        app.dictionarySearcher("cat");
+        app.editWord("cat", "woof", "yeu cho");
+        app.insertWord("cattt", "meow", "ghet cho");
         app.dictionarySearcher("cat");
         app.dictionarySearcher("cattt");
-
-
+        if (checkWord("dangnhat")) System.out.println("co");
+        else System.out.println("ko");
     }
 }
