@@ -7,6 +7,7 @@ import static AppLogic.Translator.speech;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.*;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,8 +28,8 @@ public class searchFrame extends javax.swing.JFrame {
         res = inputString.getText();
         return res;
     }
-    private String getDataFromBox() {
-        String res = comboBox.getSelectedItem().toString();
+    private String getDataFromJlist() {
+        String res = listWords.getSelectedValue();
         return res;
     }
     private Connection connect() {
@@ -51,13 +52,15 @@ public class searchFrame extends javax.swing.JFrame {
             //truyền keyWord và cái % vào dấu ? ở string sqlSearch
             ps.setString(1,keyWord + "%");
             ResultSet rs  = ps.executeQuery();
-            comboBox.removeAllItems();
+            Vector<String> data = new Vector<>();
             while (rs.next()) {
-                comboBox.addItem(rs.getString("word"));
+                data.add(rs.getString("word"));
             }
+            listWords.setListData(data);
             rs.close();
             ps.close();
             conn.close();
+            
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -99,10 +102,10 @@ public class searchFrame extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         inputString = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        comboBox = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        SearchButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listWords = new javax.swing.JList<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         showMeaning = new javax.swing.JEditorPane();
 
@@ -134,7 +137,7 @@ public class searchFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jLabel2)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,23 +168,8 @@ public class searchFrame extends javax.swing.JFrame {
             }
         });
 
-        comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NULL" }));
-        comboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxActionPerformed(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("UTM Daxline", 1, 12)); // NOI18N
         jLabel3.setText("Input the word:");
-
-        SearchButton.setBackground(new java.awt.Color(51, 51, 255));
-        SearchButton.setText("Search");
-        SearchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchButtonActionPerformed(evt);
-            }
-        });
 
         jButton2.setBackground(new java.awt.Color(51, 51, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-audio-18.png"))); // NOI18N
@@ -190,6 +178,13 @@ public class searchFrame extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        listWords.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                listWordsMousePressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(listWords);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -202,14 +197,11 @@ public class searchFrame extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(comboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(inputString, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -226,11 +218,9 @@ public class searchFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inputString, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
-                .addComponent(SearchButton)
-                .addGap(83, 83, 83))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         showMeaning.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -247,7 +237,7 @@ public class searchFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,24 +263,15 @@ public class searchFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputStringActionPerformed
 
-    private void comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboBoxActionPerformed
-
-    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-        String data = getDataFromBox();
-        printMeaning(data);
-    }//GEN-LAST:event_SearchButtonActionPerformed
-
     private void inputStringKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputStringKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        //if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             String data = getDataFromJtext();
             dictionarySearcher(data);
-        }
+        //}
     }//GEN-LAST:event_inputStringKeyPressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String data = getDataFromBox();
+        String data = getDataFromJlist();
         try {
             speech(data);
         } catch (IOException ex) {
@@ -298,34 +279,15 @@ public class searchFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void listWordsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listWordsMousePressed
+        String data = getDataFromJlist();
+        printMeaning(data);
+    }//GEN-LAST:event_listWordsMousePressed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(searchFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(searchFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(searchFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(searchFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new searchFrame().setVisible(true);
@@ -334,8 +296,6 @@ public class searchFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton SearchButton;
-    private javax.swing.JComboBox<String> comboBox;
     private javax.swing.JTextField inputString;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -346,6 +306,8 @@ public class searchFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList<String> listWords;
     private javax.swing.JEditorPane showMeaning;
     // End of variables declaration//GEN-END:variables
 }
