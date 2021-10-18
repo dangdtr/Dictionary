@@ -158,6 +158,12 @@ public class searchFrame extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 inputStringKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputStringKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputStringKeyTyped(evt);
+            }
         });
 
         jButton1.setBackground(new java.awt.Color(51, 51, 255));
@@ -280,9 +286,21 @@ public class searchFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void listWordsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listWordsMousePressed
-        String data = getDataFromJlist();
+        String data = getDataFromJtext();
         printMeaning(data);
     }//GEN-LAST:event_listWordsMousePressed
+
+    private void inputStringKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputStringKeyReleased
+        // TODO add your handling code here:
+        String data = getDataFromJtext();
+        printMeaning(data);
+    }//GEN-LAST:event_inputStringKeyReleased
+
+    private void inputStringKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputStringKeyTyped
+        // TODO add your handling code here:
+        String data = getDataFromJtext();
+        printMeaning(data);
+    }//GEN-LAST:event_inputStringKeyTyped
 
     /**
      * @param args the command line arguments
