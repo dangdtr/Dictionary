@@ -29,7 +29,7 @@ public class searchFrame extends javax.swing.JFrame {
         return res;
 //        return inputString.getText();
     }
-    private String getDataFromJlist() {
+    public static String getDataFromJlist() {
         String res = listWords.getSelectedValue();
         return res;
     }
@@ -107,6 +107,7 @@ public class searchFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         listWords = new javax.swing.JList<>();
+        editButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         showMeaning = new javax.swing.JEditorPane();
 
@@ -166,7 +167,7 @@ public class searchFrame extends javax.swing.JFrame {
                 inputStringKeyTyped(evt);
             }
         });
-        inputString.requestFocusInWindow();
+
         jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Search_18px.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -193,6 +194,13 @@ public class searchFrame extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(listWords);
 
+        editButton.setText("Edit Word");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -207,8 +215,14 @@ public class searchFrame extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(inputString, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2))
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -226,8 +240,10 @@ public class searchFrame extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inputString, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editButton)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         showMeaning.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -244,7 +260,7 @@ public class searchFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,6 +325,10 @@ public class searchFrame extends javax.swing.JFrame {
         dictionarySearcher(data);
     }//GEN-LAST:event_inputStringKeyTyped
 
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        new editFrame().setVisible(true);
+    }//GEN-LAST:event_editButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -321,6 +341,7 @@ public class searchFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton editButton;
     private javax.swing.JTextField inputString;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -332,7 +353,7 @@ public class searchFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JList<String> listWords;
+    private static javax.swing.JList<String> listWords;
     private javax.swing.JEditorPane showMeaning;
     // End of variables declaration//GEN-END:variables
 }

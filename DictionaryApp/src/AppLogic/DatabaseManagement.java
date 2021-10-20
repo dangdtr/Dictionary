@@ -131,7 +131,7 @@ public class DatabaseManagement {
      * @param pro Sửa cai gi.
      * @param mean Su cai gi.
      */
-    public void editWord(String word, String pro, String mean) {
+    public static void editWord(String word, String pro, String mean) {
         //Vì cái db set là NOT NULL nên
         //Khi chuỗi edit nào rỗng nó vi phạm ràng buộc NOT NULL của các cột
         //SQLite sẽ khôi phục -> không thực  hiện
@@ -139,7 +139,7 @@ public class DatabaseManagement {
         String sqlEdit = "REPLACE INTO av (word, pro, mean) VALUES(?, ?, ?)";
 
         try {
-            Connection conn = this.connectForUser();
+            Connection conn = connectForUser();
             PreparedStatement ps  = conn.prepareStatement(sqlEdit);
 
             ps.setString(1,word);
@@ -159,7 +159,7 @@ public class DatabaseManagement {
     public static void main(String[] args) {
         DatabaseManagement app = new DatabaseManagement();
         app.dictionarySearcher("cat");
-        app.editWord("cat", "woof", "yeu cho");
+        app.editWord("cat", "woof", "yeu");
         app.insertWord("cattt", "meow", "ghet cho");
         app.dictionarySearcher("cat");
         app.dictionarySearcher("cattt");
