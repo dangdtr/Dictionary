@@ -23,7 +23,7 @@ public class searchFrame extends javax.swing.JFrame {
     public searchFrame() {
         initComponents();
     }
-    private String getDataFromJtext() {
+    public static String getDataFromJtext() {
         String res = "";
         res = inputString.getText();
         return res;
@@ -33,7 +33,7 @@ public class searchFrame extends javax.swing.JFrame {
         String res = listWords.getSelectedValue();
         return res;
     }
-    private Connection connect() {
+    private static Connection connect() {
         // SQLite connection string  
         String url = "jdbc:sqlite:res/modify/data.db";
         Connection conn = null;
@@ -45,8 +45,8 @@ public class searchFrame extends javax.swing.JFrame {
         return conn;
     }
  
-    public void dictionarySearcher(String keyWord){
-        String sqlSearch = "SELECT * FROM av WHERE word LIKE ?";
+     public void dictionarySearcher(String keyWord){
+        String sqlSearch = "SELECT * FROM av WHERE word LIKE ? ORDER BY word";
         try {
             Connection conn = this.connect();
             PreparedStatement ps  = conn.prepareStatement(sqlSearch);
@@ -65,16 +65,16 @@ public class searchFrame extends javax.swing.JFrame {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-    }
+     }
     
-    public void printMeaning(String word) {
+    public static void printMeaning(String word) {
         String sqlSearch = "SELECT * FROM av WHERE word LIKE ?";
         try {
-            Connection conn = this.connect();
+            Connection conn = connect();
             PreparedStatement ps  = conn.prepareStatement(sqlSearch);
             //truyền keyWord và cái % vào dấu ? ở string sqlSearch
             
-            ps.setString(1,word + "%");
+            ps.setString(1,word);
             
             ResultSet rs  = ps.executeQuery();
             if (rs.next()) {
@@ -327,6 +327,24 @@ public class searchFrame extends javax.swing.JFrame {
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         new editFrame().setVisible(true);
+        String sqlSearch = "SELECT * FROM av WHERE word LIKE ?";
+        try {
+            Connection conn = connect();
+            PreparedStatement ps  = conn.prepareStatement(sqlSearch);
+
+            ps.setString(1,getDataFromJtext());
+
+            ResultSet rs  = ps.executeQuery();
+            if (rs.next()) {
+                editFrame.proString.setText(rs.getString("pro"));
+                editFrame.meanString.setText(rs.getString("mean"));
+            }
+            rs.close();
+            ps.close();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_editButtonActionPerformed
 
     /**
@@ -342,7 +360,7 @@ public class searchFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton editButton;
-    private javax.swing.JTextField inputString;
+    private static javax.swing.JTextField inputString;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -354,6 +372,6 @@ public class searchFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private static javax.swing.JList<String> listWords;
-    private javax.swing.JEditorPane showMeaning;
+    private static javax.swing.JEditorPane showMeaning;
     // End of variables declaration//GEN-END:variables
 }

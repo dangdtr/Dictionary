@@ -75,7 +75,7 @@ public class DatabaseManagement {
         String sqlSearch = "SELECT * FROM av WHERE word LIKE ?";
 
         try {
-            Connection conn = this.connectForUser();
+            Connection conn = connectForUser();
 
             PreparedStatement ps  = conn.prepareStatement(sqlSearch);
             ps.setString(1, word);
